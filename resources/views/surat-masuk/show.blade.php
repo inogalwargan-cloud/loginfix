@@ -1,4 +1,3 @@
-
 <x-app-layout>
     <x-slot name="header">
         <h2 class="text-xl font-semibold text-gray-800">Detail Surat Masuk</h2>
@@ -8,32 +7,17 @@
         <div class="mx-auto max-w-4xl px-4 sm:px-6 lg:px-8">
             <div class="rounded-xl bg-white p-6 shadow-sm">
 
-                
-<div class="flex flex-col justify-between gap-4 border-b pb-5 sm:flex-row sm:items-center">
-    <div>
-        <h3 class="text-lg font-bold text-gray-900">
-            {{ $suratMasuk->perihal }}
-        </h3>
-        <p class="mt-1 text-sm text-gray-500">
-            Agenda: {{ $suratMasuk->nomor_agenda }}
-        </p>
-    </div>
+                <div class="flex flex-col justify-between gap-4 border-b pb-5 sm:flex-row sm:items-center">
+                    <div>
+                        <h3 class="text-lg font-bold text-gray-900">{{ $suratMasuk->perihal }}</h3>
+                        <p class="mt-1 text-sm text-gray-500">Agenda: {{ $suratMasuk->nomor_agenda }}</p>
+                    </div>
 
-    <div class="flex flex-wrap gap-2">
-        @if (auth()->user()->isRole('admin', 'pimpinan'))
-            <a href="{{ route('disposisi.create', $suratMasuk) }}"
-                class="rounded-lg bg-green-600 px-4 py-2 text-sm font-semibold text-white">
-                Berikan Disposisi
-            </a>
-        @endif
-
-        <a href="{{ route('surat-masuk.edit', $suratMasuk) }}"
-            class="rounded-lg bg-indigo-600 px-4 py-2 text-sm font-semibold text-white">
-            Edit Surat
-        </a>
-    </div>
-</div>
-
+                    <a href="{{ route('surat-masuk.edit', $suratMasuk) }}"
+                        class="rounded-lg bg-indigo-600 px-4 py-2 text-center text-sm font-semibold text-white">
+                        Edit Surat
+                    </a>
+                </div>
 
                 <dl class="mt-6 grid grid-cols-1 gap-6 sm:grid-cols-2">
                     <div>
