@@ -9,6 +9,8 @@ use Illuminate\Database\Eloquent\Attributes\Hidden;
 use Illuminate\Database\Eloquent\Factories\HasFactory;
 use Illuminate\Foundation\Auth\User as Authenticatable;
 use Illuminate\Notifications\Notifiable;
+// App\Models\User::where('email', 'ino@gmail.com')->update(['role' => 'pimpinan']);
+// App\Models\User::where('email', 'admin@gmail.com')->update(['role' => 'staf']);
 
 #[Fillable(['name', 'email', 'password'])]
 #[Hidden(['password', 'remember_token'])]
@@ -29,4 +31,10 @@ class User extends Authenticatable
             'password' => 'hashed',
         ];
     }
+    public function isRole(string ...$roles): bool
+{
+    return in_array($this->role, $roles, true);
+}
+
+
 }
